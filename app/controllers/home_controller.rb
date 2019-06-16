@@ -4,20 +4,21 @@ class HomeController < ApplicationController
     searchbyname = params[:searchbyname]
     searchbyjob = params[:searchbyjob]
     searchbyspecies = params[:searchbyspecies]
-    # @name = Chara.where(name = @searchbyname).all
-    # @job = Chara.where(name = @searchbyjob).all
-    # @species = Chara.where(name = @searchbyspecies).all
+
 
     @charas = Chara.all
     if searchbyname.present?
-      @charas = Chara.where(:name => searchbyname)
+      @charas = @charas.where(:name => searchbyname)
     end
     if searchbyjob.present?
-      @charas = Chara.where(:job => searchbyjob)
+      @charas = @charas.where(:job => searchbyjob)
     end
     if searchbyspecies.present?
-      @charas = Chara.where(:species1 => searchbyspecies)
+      species1 = @charas.where(:species1 => searchbyspecies)
+      species2 = @charas.where(:species2 => searchbyspecies)
+      @charas = species1 + species2
     end
+
     @onboards = Onboard.all
     @jobarray = []
     @speciesarray = []
