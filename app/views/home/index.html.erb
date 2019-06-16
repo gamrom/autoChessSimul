@@ -1,0 +1,126 @@
+<div class="section0">
+  <div class="row row_element">
+
+    <div class="section1 col-4">
+      <div class="section_title">캐릭터 목록</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">이름</th>
+            <th scope="col">직업</th>
+            <th scope="col">종족1</th>
+            <th scope="col">종족2</th>
+            <th scope="col">검색</th>
+            <th scope="col">추가</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <form action="/home/index" method="POST">
+              <td><input class="searchinput" type="text" name="searchbyname"></td>
+              <td><input class="searchinput" type="text" name="searchbyjob"></td>
+              <td><input class="searchinput" type="text" name="searchbyspecies"></td>
+              <td></td>
+              <td><button type="submit" style="font-size: 0.8vw">검색</button></td>
+            </form>
+          </tr>
+            <% @charas.each do |c| %>
+            <tr>
+              <td><%= c.name %></td>
+              <td><%= c.job %></td>
+              <td><%= c.species1 %></td>
+              <td><%= c.species2 %></td>
+              <td></td>
+              <td>
+                <form action="/home/create" method="POST">
+                  <input type="hidden" name="c_id" value="<%= c.id %>">
+                  <button class="add_button" type="submit">+</button>
+                </form>
+              </td>
+
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section2 col-4">
+      <div class="section_title">현재 보유한 캐릭터</div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">이름</th>
+            <th scope="col">직업</th>
+            <th scope="col">종족1</th>
+            <th scope="col">종족2</th>
+            <th scope="col">개수</th>
+            <th scope="col">삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @onboards.each_with_index do |o, index| %>
+          <tr>
+            <td><%= o.name %></td>
+            <td><%= o.job %></td>
+            <td><%= o.species1 %></td>
+            <td><%= o.species2 %></td>
+            <td><%= o.howmany %></td>
+            <td>
+              <form action="/home/destroy">
+                <input type="hidden" value="<%=o.id %>" name="deleteboard">
+                <button type="submit" class="primary">삭제</button>
+              </form>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section3 col-4">
+      <div class="section_title">현재 시너지</div>
+      <div class="tabledivide">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">직업</th>
+              <th scope="col">개수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% if @manyjob.present? %>
+              <% @manyjob.count.times do |m| %>
+                <td scope="col"><%= @manyjob[m] %></td>
+                <td scope="col"><%= @jobarray.count(@manyjob[m]) %></td>
+            </tr>
+              <% end %>
+              <% else %>
+
+              <% end %>
+          </tbody>
+        </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">종족</th>
+              <th scope="col">개수</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <% if @manyspecies.present? %>
+              <% @manyspecies.count.times do |m| %>
+                <td scope="col"><%= @manyspecies[m] %></td>
+                <td scope="col"><%= @speciesarray.count(@manyspecies[m]) %></td>
+            </tr>
+              <% end %>
+              <% end %>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>

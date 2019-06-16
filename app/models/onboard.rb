@@ -1,0 +1,2 @@
+class Onboard < ApplicationRecord
+end
