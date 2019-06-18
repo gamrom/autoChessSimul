@@ -56,5 +56,13 @@ html {
 }
 
 .searchinput {
-  width: 4vw;
+  width: 100%;
+}
+
+.searchbutton {
+  width: 100%;
+}
+
+table {
+  table-layout: fixed;
 }

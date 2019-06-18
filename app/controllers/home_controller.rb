@@ -50,7 +50,7 @@ class HomeController < ApplicationController
           $whereis = c
         end
       end
-
+      #개수가 0개면 새로 생성하고, 이미 생성되어있으면 개수(숫자)를 1씩 늘린다.
       if temp == 0
         Onboard.create(name: charaset.name, job: charaset.job, species1: charaset.species1, species2: charaset.species2, howmany: 1)
       elsif temp == 1
@@ -58,19 +58,19 @@ class HomeController < ApplicationController
       end
     end
 
-    redirect_to :root
+    redirect_to home_index_path
   end
 
   def destroy
     deleteboard = params[:deleteboard].to_i #deleteboard는 삭제할려는 온보드의 아이디번호 컬럼.
+    #1이면 지우고, 1보다 많으면 개수(숫자)를 한개씩 줄인다.
     if Onboard.find(deleteboard).howmany == 1
       Onboard.find(deleteboard).destroy
     else
       Onboard.find(deleteboard).decrement(:howmany, 1).save
     end
 
-
-    redirect_to :root
+    redirect_to home_index_path
 
   end
 
