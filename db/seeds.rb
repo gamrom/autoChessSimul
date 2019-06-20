@@ -37,14 +37,14 @@ Chara.create([
   {name: '아랏', job: '롱샷', species1: '워커'},
   {name: '캐터펄트', job: '시즈브레이커', species1: '메크'},
   {name: '아웃라이더', job: '블라스터', species1: '라이더'},
-  {name: '돈클레스', job: '블라스터', species1: '에어포스'},
+  {name: '돈틀레스', job: '블라스터', species1: '에어포스'},
   {name: '코만도', job: '롱샷', species1: '마린'},
   {name: '모투스', job: '어쌔신', species1: '에어포스'},
   {name: '드레드포', job: '서머너', species1: '비스트'},
   {name: '스파이더', job: '스페셜리스트', species1: '인섹토이드'},
   {name: '수리검판다', job: '어쌔신', species1: '판다'},
   {name: '골드만', job: '가디언', species1: '비스트'},
-  {name: '불사조', job: '블라스터', species1: '랩터'},
+  {name: '불사조', job: '블라스터', species1: '랩터', species2: '스페셜리스트'},
   {name: '불워크', job: '가디언', species1: '퍼펫'},
   {name: '템페스트키퍼', job: '시즈브레이커', species1: '워커'},
   {name: '수메루', job: '서머너', species1: '크라켄', species2: '퍼펫'},
@@ -60,7 +60,8 @@ Chara.create([
   {name: '웨일', job: '시즈브레이커', species1: '크라켄'},
   {name: '헤일스톰', job: '블라스터', species1: '메크'},
   {name: '디바우러', job: '스페셜리스트', species1: '랩터'},
-  {name: '트렌트', job: '뱅가드', species1: '이모탈'}
+  {name: '트렌트', job: '뱅가드', species1: '이모탈'},
+  {name: '블랙터틀', job: '가디언', species1: '사이커'}
 
 ])
 #
