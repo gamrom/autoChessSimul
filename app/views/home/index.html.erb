@@ -1,3 +1,5 @@
+<%= render 'header' %>
+
 <div class="section0">
   <div class="row row_element">
 
@@ -47,35 +49,49 @@
 
     <div class="section2 col-4">
       <div class="section_title">현재 보유한 캐릭터</div>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">이름</th>
-            <th scope="col">직업</th>
-            <th scope="col">종족1</th>
-            <th scope="col">종족2</th>
-            <th scope="col">개수</th>
-            <th scope="col">삭제</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @onboards.each_with_index do |o, index| %>
-          <tr>
-            <td><%= o.name %></td>
-            <td><%= o.job %></td>
-            <td><%= o.species1 %></td>
-            <td><%= o.species2 %></td>
-            <td><%= o.howmany %></td>
-            <td>
-              <form action="/home/destroy">
-                <input type="hidden" value="<%=o.id %>" name="deleteboard">
-                <button type="submit" class="primary">삭제</button>
-              </form>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">이름</th>
+              <th scope="col">직업</th>
+              <th scope="col">종족1</th>
+              <th scope="col">종족2</th>
+              <th scope="col">개수</th>
+              <th scope="col">삭제</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @onboards.each_with_index do |o, index| %>
+            <tr>
+              <td><%= o.name %></td>
+              <td><%= o.job %></td>
+              <td><%= o.species1 %></td>
+              <td><%= o.species2 %></td>
+              <td><%= o.howmany %></td>
+              <td>
+                <form action="/home/destroy">
+                  <input type="hidden" value="<%=o.id %>" name="deleteboard">
+                  <button type="submit" class="primary">삭제</button>
+                </form>
+              </td>
+            </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+        <% if user_signed_in? %>
+          <div>
+            <% if Onboard.any?.! %>
+            <form action="createmyCombinationPresent" method="POST">
+              <button type="submit" class="btn btn-primary" style="width: 100%">현재 조합 저장하기</button>
+            </form>
+            <% else %>
+            <form action="createmyCombination" method="POST">
+              <button type="submit" class="btn btn-primary" style="width: 100%">현재 조합 저장하기</button>
+            </form>
+            <% end %>
+          </div>
+        <% end %>
     </div>
 
     <div class="section3 col-4">

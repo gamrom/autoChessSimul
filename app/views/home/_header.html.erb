@@ -1,0 +1,31 @@
+<div class="header">
+  <button class="btn btn-primary header-home"><a href="/home/index">시너지조합하기</a></button>
+  <div class="header-email-mother">
+    <% if user_signed_in? %>
+    <div class="header-email"><%= current_user.email %></div>
+    <% end %>
+  </div>
+  <% if user_signed_in? %>
+    <div class="header-right">
+      <form action="/home/deleteCombination" method="POST">
+        <button type="submit" class="btn btn-primary header-mycomb"><a href="/home/mycomb">내조합보기</a></button>
+      </form>
+      <button class="btn btn-primary header-logout-button"><a href="/users/sign_out" data-method="delete">로그아웃</a></button>
+    </div>
+  <% else %>
+    <a href="/users/sign_in" class="btn btn-success btn-lg active startbutton" role="button" aria-pressed="true">로그인하기</a>
+  <% end %>
+
+</div>
+
+
+<script>
+$(".header-mycomb").click(function(){
+    if(confirm("현재 조합이 사라집니다. 괜찮나요?") == true){
+        // alert("등록되었습니다");
+    }
+    else{
+        return ;
+    }
+});
+</script>

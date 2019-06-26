@@ -1,0 +1,48 @@
+.mycomb-grandmother {
+  column-count: 3;
+  column-gap: 1;
+  height: auto;
+  margin-top: 2vw;
+}
+
+.mycomb-mother {
+  break-inside: avoid;
+  padding: 5px;
+  overflow: hidden;
+  position: relative;
+  border: 2px outset #2E41A4;
+  border-radius: 10px;
+  margin-bottom: 2vw;
+
+}
+
+.mycomb-child1, .mycomb-child2 {
+  height: 100%;
+  width: 50%;
+}
+
+.mycomb-child1 {
+  float: left;
+
+}
+
+.mycomb-child2 {
+  display:flex;
+  flex-direction: column;
+  float: right;
+}
+.mycomb-nothing-mother{
+  display: flex;
+  justify-content: center;
+}
+
+.mycomb-nothing-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  width: 100%;
+  font-size: 3vw;
+}

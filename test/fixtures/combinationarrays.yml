@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  combination: one
+  name: MyString
+  job: MyString
+  species1: MyString
+  speceis2: MyString
+  howmany: 1
+
+two:
+  combination: two
+  name: MyString
+  job: MyString
+  species1: MyString
+  speceis2: MyString
+  howmany: 1

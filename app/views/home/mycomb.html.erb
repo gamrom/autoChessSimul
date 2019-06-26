@@ -1,0 +1,72 @@
+<%= render 'header' %>
+
+<% if @user.combinations.empty? %>
+  <div class="mycomb-nothing-mother">
+  <div class="mycomb-nothing-child">저장된 조합이 없습니다</div>
+  </div>
+<% else %>
+  <div class="mycomb-grandmother">
+      <% @user.combinations.count.times do |c| %>
+
+      <div class="mycomb-mother">
+        <!-- child1 -->
+        <div class="mycomb-child1">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>이름</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% @user.combinations[c].combinationarrays.count.times do |l| %>
+                <td><%= @user.combinations[c].combinationarrays[l].name %></td>
+              </tr>
+                <% end %>
+            </tbody>
+          </table>
+        </div>
+        <!-- child2 -->
+        <div class="mycomb-child2">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>성사된조합</th>
+                <th>직업</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% @showmycombjob[@showmycombjob.keys[c]].count.times do |s| %>
+                  <td><%= @showmycombjob[@showmycombjob.keys[c]].keys[s] %></td>
+                  <td><%= @showmycombjob[@showmycombjob.keys[c]][@showmycombjob[@showmycombjob.keys[c]].keys[s]]%></td>
+              </tr>
+                <% end %>
+            </tbody>
+          </table>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>성사된조합</th>
+                <th>종족</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <% @showmycombspec[@showmycombspec.keys[c]].count.times do |s| %>
+                  <td><%= @showmycombspec[@showmycombspec.keys[c]].keys[s] %></td>
+                  <td><%= @showmycombspec[@showmycombspec.keys[c]][@showmycombspec[@showmycombspec.keys[c]].keys[s]]%></td>
+              </tr>
+                <% end %>
+            </tbody>
+          </table>
+          <form action="/home/mycombdelete">
+            <input type="hidden" value="<%= @user.combinations[c].id %>" name="c_id">
+            <button type="submit" class="btn btn-outline-danger" style="width:100%">삭제</button>
+          </form>
+        </div>
+      </div>
+
+      <% end %>
+  </div>
+<% end %>

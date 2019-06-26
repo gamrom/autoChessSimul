@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.header-logout-button {
+  margin-left: 0.5vw;
+}
+
+.header > button.btn {
+  font-size: 1vw;
+}
+
+.header > button > a, .header > div > button > a {
+  text-decoration: none;
+  color: white;
+}
+
+.header >button.header-home {
+
+}
+
+.header > div.header-email-mother {
+  display: flex;
+  align-items: center;
+}
+
+div.header-right > form > button.header-mycomb > a {
+  text-decoration: none;
+  color: white;
+}
+
+.header-right {
+  display:flex;
+}

@@ -1,8 +1,20 @@
+<% if user_signed_in? %>
 <div class="start_section1">
   <div class="startloginbutton">
-    <a href="#" class="btn btn-success btn-lg active" role="button" aria-pressed="true">로그인하기</a>
+    <a href="/users/sign_out" data-method="delete" class="startbutton btn btn-success btn-lg active" role="button" aria-pressed="true">로그아웃하기</a>
   </div>
   <div class="startsimulbutton">
-    <a href="/home/index" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">시뮬레이팅 하러가기</a>
+    <a href="/home/index" class="btn btn-primary btn-lg active startbutton" role="button" aria-pressed="true">시뮬레이팅 하러가기</a>
   </div>
 </div>
+
+<% else %>
+<div class="start_section1">
+  <div class="startloginbutton">
+    <a href="/users/sign_in" class="btn btn-success btn-lg active startbutton" role="button" aria-pressed="true">로그인하기</a>
+  </div>
+  <div class="startsimulbutton">
+    <a href="/home/index" class="btn btn-primary btn-lg active startbutton" role="button" aria-pressed="true">시뮬레이팅 하러가기</a>
+  </div>
+</div>
+<% end %>

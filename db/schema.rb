@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_134309) do
+ActiveRecord::Schema.define(version: 2019_06_24_050620) do
 
   create_table "charas", force: :cascade do |t|
     t.string "name"
@@ -19,6 +19,30 @@ ActiveRecord::Schema.define(version: 2019_06_18_134309) do
     t.string "species2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "combinationarrays", force: :cascade do |t|
+    t.integer "combination_id"
+    t.string "name"
+    t.string "job"
+    t.string "species1"
+    t.string "species2"
+    t.integer "howmany"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["combination_id"], name: "index_combinationarrays_on_combination_id"
+    t.index ["howmany"], name: "index_combinationarrays_on_howmany"
+    t.index ["job"], name: "index_combinationarrays_on_job"
+    t.index ["name"], name: "index_combinationarrays_on_name"
+    t.index ["species1"], name: "index_combinationarrays_on_species1"
+    t.index ["species2"], name: "index_combinationarrays_on_species2"
+  end
+
+  create_table "combinations", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_combinations_on_user_id"
   end
 
   create_table "onboards", force: :cascade do |t|
