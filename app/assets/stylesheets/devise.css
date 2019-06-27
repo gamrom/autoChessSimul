@@ -1,0 +1,17 @@
+.loginsection0 {
+  display:inline-flex;
+  flex-direction: column;
+  width: auto;
+  border-width: 3px;
+  border-radius: 0.25rm;
+  border-color: black;
+  border-style: solid;
+  padding: 3vw;
+}
+
+.devise-mother {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
